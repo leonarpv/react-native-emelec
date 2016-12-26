@@ -11,7 +11,7 @@ import {
 
 const Dashboard= require('./dashboardView')
 const Noticias= require('./noticiasView')
-const Equipo= require('./equipoView')
+const Equipo= require('./teamView')
 
 import ScrollableTabView, { ScrollableTabBar, } from 'react-native-scrollable-tab-view';
 
