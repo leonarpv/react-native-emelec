@@ -59,6 +59,8 @@ import {
 const Login= require('./src/components/loginView')
 const Dashboard= require('./src/components/dashboardView')
 const Tabs= require('./src/components/tabs')
+const Team= require('./src/components/teamView')
+const Player= require('./src/components/playerDetailView')
 
 class emelec_app  extends Component{
 
@@ -67,12 +69,16 @@ class emelec_app  extends Component{
     switch (route.name) {
       case 'Login':
         return(
-          <Login navigator={navigator} route={route}/>
+          <Login {...route.props} navigator={navigator} route={route}/>
         )
       case'Home':
       return(
-        <Tabs navigator={navigator} route={route}/>
+        <Tabs {...route.props} navigator={navigator} route={route}/>
 
+      )
+      case 'Detalles':
+      return(
+         <Player {...route.props} navigator={navigator} route={route}/>
       )
     }
 

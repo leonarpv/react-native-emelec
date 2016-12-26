@@ -12,10 +12,13 @@ import {
   Navigator,
   ScrollView,
   ListView,
+  Alert,
   TouchableHighlight
 } from 'react-native'
 
 const REQUEST_URL="https://api.sportradar.us/soccer-t3/am/es/teams/sr:competitor:5255/profile.json"
+
+const Player= require('./playerDetailView')
 
 class teamView extends Component {
 
@@ -60,16 +63,33 @@ console.log(responseData)
 
 renderPlayer(player){
   return(
-    <TouchableHighlight>
+    <TouchableHighlight onPress={()=> this.onPlayerPressed(player)}>
     <Image style={styles.backgroundImage} source={{uri:'http://www.estadio.ec/sites/default/files/fotos/2016/01/28/emelec-adidas-28-01-2016.jpg'}}>
-      <View style={styles.rightContainer}>
-        <Text style={styles.title}>{player.name}</Text>
-        
-        </View>
+     <View style={styles.box_left}>
+      <Image 
+          source={{uri:'https://cdn.shopify.com/s/files/1/1221/4934/products/closeup_emelec_large.jpg?v=1474237777'}}
+          style={styles.image}
+          />
+     </View>
+     <View style={styles.box_right}>
+      <Text style={styles.title}>#{player.jersey_number} {player.name} </Text>
+          <Text style={styles.country_code}>País:{player.country_code}</Text>
+     </View>
     </Image>
     </TouchableHighlight>
     )
   
+}
+
+
+onPlayerPressed(player){
+Alert.alert(
+      player.name,
+      'Estatura:'+player.height+'\nPeso:'+player.weight+'\nNacionalidad '+player.nationality ,
+      [
+        {text: 'OK'}
+      ]
+    );
 }
 
 renderLoadView(){
@@ -101,17 +121,44 @@ renderLoadView(){
 }
 
 const styles = StyleSheet.create({
+
   container: {
+    flexDirection: 'row',
     backgroundColor:'white',
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   backgroundImage:{
-    justifyContent:'center',
-    alignItems:'center',
     alignSelf:'auto',
-    height:50
-  }
+    height:150
+  },
+   title:{
+    alignItems: 'flex-end',
+    marginLeft:5,
+    marginTop: 5,
+    fontSize: 25,
+    textAlign: 'justify',
+    color:'white'
+  },
+  country_code:{
+    alignItems: 'flex-end',
+    marginLeft:5,
+    fontSize: 15,
+    textAlign: 'justify',
+    color:'white'
+  },
+  image:{
+     alignItems: 'flex-end',
+    width: 65, 
+    height: 65
+
+  },
+    box1: {
+    flex:1,
+    padding:10
+  },
+  box2: {
+    flex:1,
+    padding:10
+  },
 });
 
 

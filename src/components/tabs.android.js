@@ -7,11 +7,14 @@ import React, {
 import {
   View,
   Text,
+  Navigator,
 } from 'react-native'
 
 const Dashboard= require('./dashboardView')
 const Noticias= require('./noticiasView')
 const Equipo= require('./teamView')
+const Detalles= require('./playerDetailView')
+
 
 import ScrollableTabView, { ScrollableTabBar, } from 'react-native-scrollable-tab-view';
 
@@ -31,6 +34,7 @@ class Tabs extends Component {
     >
       <Noticias tabLabel='Noticias'/>
       <Equipo tabLabel='Equipo'/>
+
 
     </ScrollableTabView>;
   }
