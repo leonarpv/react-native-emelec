@@ -13,7 +13,7 @@ import {
 const Dashboard= require('./dashboardView')
 const Noticias= require('./noticiasView')
 const Equipo= require('./teamView')
-const Estatadisticas= require('./statisticsView')
+const Estadisticas= require('./statisticsView')
 
 
 
@@ -29,13 +29,13 @@ class Tabs extends Component {
 
  render() {
     return <ScrollableTabView
-      style={{marginTop: 30, backgroundColor:'white', transform: [{'translate':[0,25,0]}] ,}}
+      style={{marginTop: 30, backgroundColor:'white', transform: [{'translate':[0,20,0]}] ,}}
       initialPage={0}
       renderTabBar={() => <ScrollableTabBar />}
     >
 
-      <Equipo tabLabel='Equipo'/>
-      <Estatadisticas tabLabel='Estatadisticas'/>
+      <Equipo navigator={this.props.navigator} tabLabel='Equipo'/>
+      <Estadisticas navigator={this.props.navigator} tabLabel='Estadisticas'/>
 
 
 

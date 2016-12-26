@@ -75,19 +75,18 @@ renderSeasons(season){
 
 
 onPlayerPressed(season){
-Alert.alert(
-      'hola',
-      'hola,'
-      [
-        {text: 'OK'}
-      ]
-    );
+
+this.props.navigator.push({
+      name: 'Detalles',
+      title: season.name,
+      passProps: {season:season}
+    });
 }
 
 renderLoadView(){
-  return(
+   return(
     <View style={styles.container}>
-    <Text>Cargando</Text>
+    <Text style={styles.charging}>Cargando...</Text>
     </View>
 
     )
@@ -114,10 +113,18 @@ renderLoadView(){
 
 const styles = StyleSheet.create({
 
-  container: {
-    flexDirection: 'row',
-    backgroundColor:'white',
+ container: {
+  flexDirection: 'row',
+  backgroundColor:'white',
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
   },
+ charging:{
+  fontFamily:'Roboto',
+  fontSize:25,
+  fontWeight: 'bold',
+},
   backgroundImage:{
   	paddingTop: 60,
     height:100,

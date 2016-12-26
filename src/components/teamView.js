@@ -95,7 +95,7 @@ Alert.alert(
 renderLoadView(){
   return(
     <View style={styles.container}>
-    <Text>Cargando</Text>
+    <Text style={styles.charging}>Cargando...</Text>
     </View>
 
     )
@@ -123,8 +123,11 @@ renderLoadView(){
 const styles = StyleSheet.create({
 
   container: {
-    flexDirection: 'row',
-    backgroundColor:'white',
+  flexDirection: 'row',
+  backgroundColor:'white',
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
   },
   backgroundImage:{
     alignSelf:'auto',
@@ -138,6 +141,11 @@ const styles = StyleSheet.create({
     textAlign: 'justify',
     color:'white'
   },
+  charging:{
+  fontFamily:'Roboto',
+  fontSize:25,
+  fontWeight: 'bold',
+},
   country_code:{
     alignItems: 'flex-end',
     marginLeft:5,
