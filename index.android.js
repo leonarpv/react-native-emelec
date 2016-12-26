@@ -25,25 +25,28 @@ import {
 
 
       return(
-        <TouchableHighlight  style={styles.back_navigator_button} onPress={()=>{
+
+        <TouchableHighlight  style={{backgroundColor:'white'}} onPress={()=>{
           if(index > 0){
             navigator.pop();
           }
         }}>
-          <Text  style={styles.back_navigator_button_text}> Atrás</Text>
+          <Text   style={styles.top_taps_navigator} >Atrás</Text>
         </TouchableHighlight>
       )
 
     },
 
     RightButton: function (route,navigator,index) {
-      return null;
+
+      return null
     },
 
     Title: function (route,navigator,index) {
 
+
       return(
-        <Text style={styles.titles_navigator}>
+        <Text style={styles.title_top_taps_navigator}>
           {route.name}
         </Text>
       )
@@ -55,6 +58,7 @@ import {
 
 const Login= require('./src/components/loginView')
 const Dashboard= require('./src/components/dashboardView')
+const Tabs= require('./src/components/tabs')
 
 class emelec_app  extends Component{
 
@@ -67,7 +71,8 @@ class emelec_app  extends Component{
         )
       case'Home':
       return(
-        <Dashboard navigator={navigator} route={route}></Dashboard>
+        <Tabs navigator={navigator} route={route}/>
+
       )
     }
 
@@ -93,7 +98,7 @@ class emelec_app  extends Component{
         }}
 
       navigationBar={
-        <Navigator.NavigationBar routeMapper={NavigatorBarRouteMapper}/>
+        <Navigator.NavigationBar  style={styles.navigator_tabs} routeMapper={NavigatorBarRouteMapper}/>
       }
       />
     )
@@ -103,31 +108,28 @@ class emelec_app  extends Component{
 
 
 const styles = StyleSheet.create({
-  container_navigator:{
+    container_navigator:{
     backgroundColor:'#003366'
   },
-  back_navigator_button:{
-    marginTop:10,
-    marginLeft: 20,
-    backgroundColor:'#003366',
-    width:50,
-    height:20,
-    borderRadius:5,
+  navigator_tabs: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#003366',
+    height:40,
   },
-  back_navigator_button_text:{
+  top_taps_navigator:{
     fontFamily:'Roboto',
-    fontSize:12,
-    fontWeight: 'bold',
     color:'white',
+    fontWeight: 'bold',
+    fontSize:25,
   },
-  titles_navigator:{
+  title_top_taps_navigator:{
     fontFamily:'Roboto',
     color:'#003366',
     fontWeight: 'bold',
-    marginLeft:50,
-    alignItems:'center',
+    color:'white',
     fontSize:25,
-    justifyContent:'center',
+    marginTop:15
   }
 
 });

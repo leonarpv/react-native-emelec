@@ -15,13 +15,13 @@ import {
 
 
 
-class dashboardView extends Component {
+class noticiasView extends Component {
   render() {
     return(
 
           <View style={styles.container}>
             
-
+            <Text>sdasadsasad</Text>
 
           </View>
 
@@ -58,4 +58,4 @@ const styles = StyleSheet.create({
 });
 
 
-module.exports=dashboardView;
+module.exports=noticiasView;

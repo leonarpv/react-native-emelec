@@ -46,16 +46,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  title:{
-    fontFamily:'Roboto',
-    color:'#003366',
-    marginTop:-70,
-    marginLeft:95,
-    fontSize:35,
-    textShadowOffset: {width: 1, height: -1}, textShadowRadius: 1, textShadowColor: '#f0f8ff',
-    fontWeight: 'bold',
-    alignSelf: 'stretch',
-  },
   logo_login:{
     width:200,
     height:200,
