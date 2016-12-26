@@ -33,7 +33,7 @@ class Tabs extends Component {
       initialPage={0}
       renderTabBar={() => <ScrollableTabBar />}
     >
-      <Noticias tabLabel='Noticias'/>
+
       <Equipo tabLabel='Equipo'/>
       <Estatadisticas tabLabel='Estatadisticas'/>
 
