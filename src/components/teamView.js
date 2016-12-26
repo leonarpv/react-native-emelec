@@ -18,7 +18,7 @@ import {
 
 const REQUEST_URL="https://api.sportradar.us/soccer-t3/am/es/teams/sr:competitor:5255/profile.json"
 
-const Player= require('./playerDetailView')
+
 
 class teamView extends Component {
 
@@ -146,7 +146,9 @@ const styles = StyleSheet.create({
     color:'white'
   },
   image:{
-     alignItems: 'flex-end',
+
+    borderRadius:12,
+    alignItems: 'flex-end',
     width: 65, 
     height: 65
 

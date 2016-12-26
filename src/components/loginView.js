@@ -31,8 +31,8 @@ class loginView extends Component {
     )
   }
   onLogin(){
-    this.props.navigator.replace({
-      title:'Dashboard',
+    this.props.navigator.push({
+      title:'Club Sport Emelec',
       name:'Home',
       passProps:{}
     });

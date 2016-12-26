@@ -11,6 +11,7 @@ import {
   Text,
   View,
   Navigator,
+  Image,
   TouchableHighlight
 } from 'react-native';
 
@@ -18,21 +19,22 @@ import {
 
     LeftButton:function (route,navigator,index) {
 
-      if (index==0) {
-          return null
-      }
 
+      if (index<=0) {
+      return null
+      }
 
 
       return(
 
-        <TouchableHighlight  style={{backgroundColor:'white'}} onPress={()=>{
-          if(index > 0){
-            navigator.pop();
-          }
-        }}>
-          <Text   style={styles.top_taps_navigator} >Atrás</Text>
-        </TouchableHighlight>
+      <TouchableHighlight style={styles.logo_top}>
+        <Image 
+          source={{uri:'https://ls.sportradar.com/ls/crest/big/5255.png'}}
+          style={styles.image}
+          />
+      </TouchableHighlight>
+        
+    
       )
 
     },
@@ -47,7 +49,7 @@ import {
 
       return(
         <Text style={styles.title_top_taps_navigator}>
-          {route.name}
+          {route.title} 
         </Text>
       )
 
@@ -56,11 +58,12 @@ import {
 
   }
 
+
 const Login= require('./src/components/loginView')
 const Dashboard= require('./src/components/dashboardView')
 const Tabs= require('./src/components/tabs')
 const Team= require('./src/components/teamView')
-const Player= require('./src/components/playerDetailView')
+
 
 class emelec_app  extends Component{
 
@@ -75,10 +78,6 @@ class emelec_app  extends Component{
       return(
         <Tabs {...route.props} navigator={navigator} route={route}/>
 
-      )
-      case 'Detalles':
-      return(
-         <Player {...route.props} navigator={navigator} route={route}/>
       )
     }
 
@@ -118,16 +117,9 @@ const styles = StyleSheet.create({
     backgroundColor:'#003366'
   },
   navigator_tabs: {
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#003366',
-    height:40,
-  },
-  top_taps_navigator:{
-    fontFamily:'Roboto',
-    color:'white',
-    fontWeight: 'bold',
-    fontSize:25,
+    height:60,
   },
   title_top_taps_navigator:{
     fontFamily:'Roboto',
@@ -136,7 +128,14 @@ const styles = StyleSheet.create({
     color:'white',
     fontSize:25,
     marginTop:15
-  }
+  },
+   image:{
+    borderRadius:12,
+    alignItems: 'flex-end',
+    width: 65, 
+    height: 65
+
+  },
 
 });
 
